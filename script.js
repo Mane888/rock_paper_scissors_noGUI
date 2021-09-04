@@ -9,10 +9,11 @@ function computerPlay(){
 }
  else {
   return("scissors")
-}
+  }
 }
 
 
+//a function for player input that is case-insensitive
 function playerChoose(){
   let playerInput = prompt("Please choose Rock, Paper or Scissors", "Rock").toLowerCase();
   return(playerInput);
@@ -25,8 +26,9 @@ const computerSelection = computerPlay();
 const playerSelection = playerChoose();
   console.log(playerSelection);
 
-//Write a function that plays a single round of Rock Paper Scissors.
 
+
+//Write a function that plays a single round of Rock Paper Scissors.
 function playRound(){
 
 if (playerSelection === "rock"){
@@ -67,13 +69,9 @@ if (playerSelection === "scissors"){
   }
 }
 }
-console.log(playRound())
 
 
-
-
-//The function should take two parameters - the playerSelection and computerSelection
-//and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
-// Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
-//Important note: you want to return the results of this function call, not console.log() them. To test this
-//function console.log the results..
+//Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
+function game(){
+  
+}
