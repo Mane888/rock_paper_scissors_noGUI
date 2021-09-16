@@ -1,3 +1,43 @@
+body {
+  color: aliceblue;
+  background-color: bisque;
+  margin: 0px;
+  padding: 0 0;
+}
+
+.topSpace {
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
 .mainContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: space-around;
+  height: 100vh;
   background-color: black;
+}
+.playButtons {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  background-color: chartreuse;
+  height: auto;
+  width: 30%;
+  
+}
+
+.buttonRock, .buttonPaper, .buttonScissors {
+  display: flex;
+  height: 150px;
+  width: 100px;
+  margin: 20px;
+  background-color: crimson;
+}
+
+h1 {
+  
+  margin-top: 20;
+  text-align: center;
+  background-color: blueviolet;
 }

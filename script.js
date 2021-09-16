@@ -1,4 +1,121 @@
+let playerScoreCount = 0;
 
+let computerScoreCount = 0;
+
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {button.addEventListener('click', function(e){
+
+    if(e.target.id == "rock"){
+      playerChoice = e.target.id;
+      console.log(playerChoice);
+      playRound(playerChoice, computerPlay());
+      }
+    else if(e.target.id == "paper"){
+      playerChoice = e.target.id;
+      console.log(playerChoice);
+      playRound(playerChoice, computerPlay());
+    }
+    else if(e.target.id == "scissors"){
+      playerChoice = e.target.id;
+      console.log(playerChoice);
+      playRound(playerChoice, computerPlay());
+    }
+  })
+});
+/*
+if (playRound() === "tie"){
+  console.log("It's a tie");
+  return(++playerScoreCount, ++computerScoreCount);
+}
+else if (playRound() === "won"){
+  console.log("You win");
+  return(++playerScoreCount);
+}
+  else if (playRound() === "lost"){
+    console.log("You loose");
+    return(++computerScoreCount);
+
+}*/
+
+function playRound(humanChoice, computerSelection){
+
+  if (humanChoice === "rock"){
+     if (computerSelection === "paper"){
+      console.log("You lost!Paper beats Rock")
+      return("lost");
+      }
+        else if (computerSelection === "scissors"){
+          console.log("You won!Rock beats Scissors");
+          return("won");
+        }
+            else if (computerSelection === "rock"){
+              console.log("It's a tie");
+              return("tie");
+            }
+    }
+      
+      
+  if (humanChoice === "paper"){
+     if (computerSelection === "rock"){
+      console.log("You won!Paper beats Rock");
+      return("won");
+      }
+        else if (computerSelection === "scissors"){
+          console.log("You lost!Scissors beats Paper");
+          return("lost");
+        }
+            else if (computerSelection === "paper"){
+             console.log("It's a tie");
+             return("tie");
+            }
+    }
+      
+      
+  if (humanChoice === "scissors"){
+     if (computerSelection === "rock"){
+      console.log("You lost!Rock beats Scissors");
+      return("lost");
+      }
+        else if (computerSelection === "paper"){
+          console.log("You won!Scissors beats Paper");
+          return("won");
+        }
+            else if (computerSelection === "scissors"){
+             console.log("It's a tie");
+             return("tie");
+            }
+    }
+
+   
+
+}
+
+
+
+
+function computerPlay(){
+  let randomComputerNumber = Math.floor(Math.random()*100);
+    if (randomComputerNumber <= 33){
+      console.log("rock");
+      return("rock");
+    }
+    else if (randomComputerNumber <= 66){
+      console.log("paper");
+    return("paper");
+    }
+    else {
+      console.log("scissors");
+     return("scissors")
+    }
+
+}
+
+
+  
+
+/*
 let playerScoreCount = 0;
 
 let computerScoreCount = 0;
@@ -113,5 +230,5 @@ if(playerScoreCount === computerScoreCount){
      else if(playerScoreCount < computerScoreCount){
      console.log("Skynet is coming!");
 }
-
+*/
 
