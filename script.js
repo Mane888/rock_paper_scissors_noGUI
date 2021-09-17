@@ -2,11 +2,18 @@ let playerScoreCount = 0;
 
 let computerScoreCount = 0;
 
+let whoWonTheGame;
+
+let scorePl = document.querySelector('.scorePl');
+let scorePc = document.querySelector('.scorePc');
+let winner = document.querySelector('.winner');
+
+
 
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach(button => {button.addEventListener('click', function(e){
-
+  
     if(e.target.id == "rock"){
       playerChoice = e.target.id;
       console.log(playerChoice);
@@ -24,73 +31,74 @@ buttons.forEach(button => {button.addEventListener('click', function(e){
     }
   })
 });
-/*
-if (playRound() === "tie"){
-  console.log("It's a tie");
-  return(++playerScoreCount, ++computerScoreCount);
-}
-else if (playRound() === "won"){
-  console.log("You win");
-  return(++playerScoreCount);
-}
-  else if (playRound() === "lost"){
-    console.log("You loose");
-    return(++computerScoreCount);
 
-}*/
 
 function playRound(humanChoice, computerSelection){
-
+  
   if (humanChoice === "rock"){
      if (computerSelection === "paper"){
-      console.log("You lost!Paper beats Rock")
-      return("lost");
+        ++computerScoreCount;
+        scorePc.innerHTML = computerScoreCount;
+        
       }
         else if (computerSelection === "scissors"){
-          console.log("You won!Rock beats Scissors");
-          return("won");
+          ++playerScoreCount;
+          scorePl.innerHTML = playerScoreCount;
+          
         }
             else if (computerSelection === "rock"){
-              console.log("It's a tie");
-              return("tie");
+              ++playerScoreCount;
+              ++computerScoreCount;
+              scorePl.innerHTML = playerScoreCount;
+              scorePc.innerHTML = computerScoreCount;
+              
             }
     }
       
       
   if (humanChoice === "paper"){
      if (computerSelection === "rock"){
-      console.log("You won!Paper beats Rock");
-      return("won");
+        ++playerScoreCount;
+        scorePl.innerHTML = playerScoreCount;
+        
       }
         else if (computerSelection === "scissors"){
-          console.log("You lost!Scissors beats Paper");
-          return("lost");
+          ++computerScoreCount;
+          scorePc.innerHTML = computerScoreCount;
+          
         }
             else if (computerSelection === "paper"){
-             console.log("It's a tie");
-             return("tie");
+              ++playerScoreCount;
+              ++computerScoreCount;
+              scorePl.innerHTML = playerScoreCount;
+              scorePc.innerHTML = computerScoreCount;
+             
             }
     }
       
       
   if (humanChoice === "scissors"){
      if (computerSelection === "rock"){
-      console.log("You lost!Rock beats Scissors");
-      return("lost");
+        ++computerScoreCount;
+        scorePc.innerHTML = computerScoreCount;
+        
       }
         else if (computerSelection === "paper"){
-          console.log("You won!Scissors beats Paper");
-          return("won");
+          ++playerScoreCount;
+          scorePl.innerHTML = playerScoreCount;
+         
         }
             else if (computerSelection === "scissors"){
-             console.log("It's a tie");
-             return("tie");
+                ++playerScoreCount;
+                ++computerScoreCount;
+                scorePl.innerHTML = playerScoreCount;
+                scorePc.innerHTML = computerScoreCount;
+                
             }
+        
     }
-
-   
-
-}
+    whoWon();
+};
 
 
 
@@ -110,10 +118,30 @@ function computerPlay(){
      return("scissors")
     }
 
+};
+
+function whoWon(){
+  if (playerScoreCount == 5){
+    whoWonTheGame =  'Player Won';
+    winner.textContent = whoWonTheGame;
+  }
+  else if (computerScoreCount == 5){
+    whoWonTheGame = 'Computer Won';
+    winner.textContent = whoWonTheGame;
+  }
 }
 
-
-  
+/*
+function whoWon(){
+  if((playerScoreCount == 5) || (computerScoreCount == 5)){
+    if(playerScoreCount>computerScoreCount){
+      alert('Player won!');
+    }
+    else if(playerScoreCount<computerScoreCount){
+      alert('Computer won!');
+    }
+  }
+}*/
 
 /*
 let playerScoreCount = 0;
