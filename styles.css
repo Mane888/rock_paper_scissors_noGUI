@@ -1,43 +1,97 @@
-body {
-  color: aliceblue;
-  background-color: bisque;
-  margin: 0px;
-  padding: 0 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.topSpace {
-  margin-top: 150px;
-  margin-bottom: 100px;
-}
-.mainContainer {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  align-content: space-around;
+section {
   height: 100vh;
   background-color: black;
+  font-family: sans-serif;
+}
+
+button {
+  background-color: black;
+}
+
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: black;
+  color: white;
+  height: 20vh;
+}
+#rock {
+  background-image: url(images/rock1.png);
+  background-size: cover;
+  height: 150px;
+  width: 200px;
+  border:none;
+  margin-top: 50px;
+}
+#paper {
+  background-image: url(images/paper1.png);
+  background-size: cover;
+  height: 240px;
+  width: 130px;
+  border:none;
+  margin-right: 30px;
+}
+#scissors {
+  background-image: url(images/scissors1.png);
+  background-size: cover;
+  height: 170px;
+  width: 200px;
+  border:none;
+  margin-top: 45px;
+}
+#pc-choice {
+  background-image: url(images/rock1.png);
+  background-size: cover;
+  height: 150px;
+  width: 200px;
+  border:none;
+  margin-top: 45px;
+  margin-left: px;
+}
+
+#pc-choice:hover {
+  animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(0, -1px, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(0, 2px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(0, -4px, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(0, 4px, 0);
+  }
 }
 .playButtons {
+  height: auto;
+  width: auto;
+  
+}
+
+
+.scoreBoard {
   display: flex;
   flex-flow: row;
+  align-items: center;
   justify-content: space-around;
-  background-color: chartreuse;
-  height: auto;
-  width: 30%;
-  
+  color: white;
+  margin-top: 10vh;
 }
 
-.buttonRock, .buttonPaper, .buttonScissors {
-  display: flex;
-  height: 150px;
-  width: 100px;
-  margin: 20px;
-  background-color: crimson;
-}
-
-h1 {
-  
-  margin-top: 20;
-  text-align: center;
-  background-color: blueviolet;
-}
