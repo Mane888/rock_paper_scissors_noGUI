@@ -6,63 +6,78 @@
 section {
   height: 100vh;
   background-color: black;
-  font-family: sans-serif;
+  font-family: 'Press Start 2P', cursive;
 }
 
 button {
   background-color: black;
+  font-family: 'Press Start 2P', cursive;
 }
 
-.mainContainer {
+.headingCointainer {
   display: flex;
   align-items: center;
   justify-content: space-around;
   background-color: black;
-  color: white;
+  color: rgba(255, 255, 255, 0.89);
   height: 20vh;
+  font-size: 40px;
 }
 #rock {
-  background-image: url(images/rock1.png);
+  background-image: url(images/rock.png);
   background-size: cover;
   height: 150px;
   width: 200px;
   border:none;
-  margin-top: 50px;
+}
+#rock:hover, #paper:hover, #scissors:hover {
+  transition:ease-in-out 0.3s;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 #paper {
-  background-image: url(images/paper1.png);
+  background-image: url(images/paper.png);
   background-size: cover;
   height: 240px;
   width: 130px;
   border:none;
-  margin-right: 30px;
+  margin-right: 60px;
+  margin-left: 50px;
 }
 #scissors {
-  background-image: url(images/scissors1.png);
+  background-image: url(images/scissors.png);
   background-size: cover;
   height: 170px;
   width: 200px;
   border:none;
-  margin-top: 45px;
-}
-#pc-choice {
-  background-image: url(images/rock1.png);
-  background-size: cover;
-  height: 150px;
-  width: 200px;
-  border:none;
-  margin-top: 45px;
-  margin-left: px;
 }
 
-#pc-choice:hover {
+ 
+.pcChoice {
+  height: 150px;
+  width: 200px;
+}
+.paperBck {
+  background-image: url(images/paper.png) !important;
+}
+.rockBck {
+  background-image: url(images/rock.png) !important;
+}
+.scissorsBck {
+  background-image: url(images/scissors.png) !important;
+}
+
+.shakeAnimation {
   animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+  animation-iteration-count: infinite;
 }
 
+
 @keyframes shake {
+  
   10%, 90% {
     transform: translate3d(0, -1px, 0);
   }
@@ -80,9 +95,12 @@ button {
   }
 }
 .playButtons {
-  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   width: auto;
-  
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 
@@ -91,7 +109,86 @@ button {
   flex-flow: row;
   align-items: center;
   justify-content: space-around;
-  color: white;
-  margin-top: 10vh;
+  color: rgba(255, 255, 255, 0.89);
+  height: 20vh;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
+.scoreBoard p {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+.winnerDiv {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  color: rgba(255, 255, 255, 0.89);
+  font-size: 20px;
+}
+
+.restartBtn{
+  color: rgba(255, 255, 255, 0.89);
+  border: none;
+  background-color: rgba(199, 4, 4, 0.856);
+  padding: 10px;
+  border-radius: 3px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 2s ease 0.5s;
+  cursor: pointer;
+}
+
+.restartBtn:hover {
+  transform: scale(1.1);
+}
+
+.winner {
+  opacity: 0;
+}
+
+.showWinner {
+  color: rgba(255, 255, 255, 0.89);
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
+.showBtn {
+  opacity: 1;
+  transition: opacity 1s ease;
+  transition-delay: 2000ms;
+}
+
+
+.scale {
+  transform: scale(1) !important;
+}
+
+@keyframes btnScale {
+
+  0%, 50% {
+    transform: scale(1);
+  }
+  60%, 100% {
+    transform: scale(1);
+  }
+
+}
+
+.hideInputs {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  transition-delay: 1500ms;
+}
+
+.cannotClick {
+  cursor: pointer;
+  transform: scale(1);
+  pointer-events: none;
+}
